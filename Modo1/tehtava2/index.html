@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tervehdys</title>
+</head>
+<body>
+
+    <h1 id="tervehdys"></h1>
+
+    <script>
+        let nimi = prompt("Mikä on nimesi?");
+
+        let tervehdysElementti = document.getElementById("tervehdys");
+
+        if (nimi && nimi.trim() !== "") {
+            tervehdysElementti.textContent = "Hello, " + nimi + "!";
+        } else {
+            tervehdysElementti.textContent = "Hello, Guest!";
+        }
+    </script>
+
+</body>
+</html>

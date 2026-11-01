@@ -1,0 +1,66 @@
+/* Musta sivu / Tumma teema - Style.css */
+body {
+    background-color: #121212; /* Tumma/musta tausta */
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff; /* Vaalea teksti, jotta se erottuu mustasta */
+    padding: 20px;
+}
+
+h1 {
+    color: #ff4d4d; /* K-ryhmän punaiseen vivahtava kirkas sävy tummalle taustalle */
+}
+
+h2 {
+    color: #e0e0e0;
+}
+
+/* Linkin tyylit tummalle sivulle */
+a {
+    color: #4da6ff; /* Vaalea sininen linkki */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #ff4d4d;
+    text-decoration: underline;
+}
+
+/* Kuva: reunukset ja pyöristetyt kulmat */
+img {
+    border: 3px solid #444444;
+    border-radius: 12px;
+    margin: 10px 0;
+}
+
+/* Listan oletuspalluroiden poisto */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #333333;
+}
+
+/* Taulukko tummalla teemalla */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 450px;
+    margin-top: 15px;
+    background-color: #1e1e1e;
+}
+
+td, th {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #444444;
+    color: #ffffff;
+}
+
+/* Jokaisen toisen rivin taustaväri (raidoitus tummalla teemalla) */
+table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
