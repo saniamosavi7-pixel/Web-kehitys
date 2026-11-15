@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lausekelaskin (t9)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        .laskin-kontti {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 320px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="laskin-kontti">
+    <h2>Lausekelaskin</h2>
+ 
+    
+    <label for="lauseke">Kirjoita laskutoimitus (esim. 3+5, 2-78, 3/6):</label>
+    <input type="text" id="lauseke" placeholder="Kirjoita tähän...">
+
+    <!-- Painike laskennalle -->
+    <button onclick="laske()">Laske</button>
+
+
+    <p id="result">Tulos: </p>
+</div>
+
+<script>
+    function laske() {
+      
+        const syote = document.getElementById("lauseke").value.trim();
+        const tulosElementti = document.getElementById("result");
+
+        let operaattori = "";
+
+
+        if (syote.includes("+")) {
+            operaattori = "+";
+        } else if (syote.includes("-")) {
+            operaattori = "-";
+        } else if (syote.includes("*")) {
+            operaattori = "*";
+        } else if (syote.includes("/")) {
+            operaattori = "/";
+        } else {
+            tulosElementti.textContent = "Tulos: Virhe – käytä operaattoria (+, -, * tai /)";
+            return;
+        }
+
+     
+        const osat = syote.split(operaattori);
+
+    
+        if (osat.length !== 2) {
+            tulosElementti.textContent = "Tulos: Virheellinen lauseke!";
+            return;
+        }
+
+      
+        const luku1 = parseInt(osat[0]);
+        const luku2 = parseInt(osat[1]);
+
+
+        if (isNaN(luku1) || isNaN(luku2)) {
+            tulosElementti.textContent = "Tulos: Syötä kokonaisluvut oikein!";
+            return;
+        }
+
+        let tulos;
+
+
+        switch (operaattori) {
+            case "+":
+                tulos = luku1 + luku2;
+                break;
+            case "-":
+                tulos = luku1 - luku2;
+                break;
+            case "*":
+                tulos = luku1 * luku2;
+                break;
+            case "/":
+                if (luku2 === 0) {
+                    tulosElementti.textContent = "Tulos: Nollalla ei voi jakaa!";
+                    return;
+                }
+                tulos = Math.floor(luku1 / luku2); // Kokonaislukujako
+                break;
+        }
+
+
+        tulosElementti.textContent = "Tulos: " + tulos;
+    }
+</script>
+
+</body>
+</html>

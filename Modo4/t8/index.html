@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yksinkertainen laskin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        .laskin-kontti {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 320px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="laskin-kontti">
+    <h2>Laskin</h2>
+    
+ 
+    <label for="luku1">Ensimmäinen luku:</label>
+    <input type="number" id="luku1" placeholder="Syötä luku">
+
+
+    <label for="operaatio">Valitse laskutoimitus:</label>
+    <select id="operaatio">
+        <option value="summa">Summa (+)</option>
+        <option value="erotus">Erotus (-)</option>
+        <option value="tulo">Tulo (*)</option>
+        <option value="osamaara">Osamäärä (/)</option>
+    </select>
+
+    <label for="luku2">Toinen luku:</label>
+    <input type="number" id="luku2" placeholder="Syötä luku">
+
+   
+    <button onclick="laske()">Laske</button>
+
+
+    <p id="result">Tulos: </p>
+</div>
+
+<script>
+    function laske() {
+      
+        const luku1 = parseFloat(document.getElementById("luku1").value);
+        const luku2 = parseFloat(document.getElementById("luku2").value);
+
+
+        const operaatio = document.getElementById("operaatio").value;
+
+     
+        const tulosElementti = document.getElementById("result");
+
+       
+        if (isNaN(luku1) || isNaN(luku2)) {
+            tulosElementti.textContent = "Tulos: Syötä molemmat luvut!";
+            return;
+        }
+
+        let tulos;
+
+      
+        switch (operaatio) {
+            case "summa":
+                tulos = luku1 + luku2;
+                break;
+            case "erotus":
+                tulos = luku1 - luku2;
+                break;
+            case "tulo":
+                tulos = luku1 * luku2;
+                break;
+            case "osamaara":
+                if (luku2 === 0) {
+                    tulosElementti.textContent = "Tulos: Nollalla ei voi jakaa!";
+                    return;
+                }
+                tulos = luku1 / luku2;
+                break;
+            default:
+                tulos = "Virhe";
+        }
+
+        
+        tulosElementti.textContent = "Tulos: " + tulos;
+    }
+</script>
+
+</body>
+</html>

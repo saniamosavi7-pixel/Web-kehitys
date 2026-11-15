@@ -1,5 +1,12 @@
 Tehtävä 1-5 tehty
 Tehtävä 7 tehty 
+Tehtävä 1 : 1 P
+Tehtävä 2:  2 P
+Tehtävä 3:  3 P
+Tehtävä 4:  3 P
+Tehtävä 5:  3 P
+Tehtävä 7:  2 P 
+yht: 14 P
 
  # JavaScript-perusteet: Moduulit 1 ja 2 (Interaktiiviset ohjelmat ja ohjausrakenteet)
 
